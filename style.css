@@ -1,0 +1,564 @@
+/* --- 1. RESET và biến CSS --- */
+:root {
+    /* Màu sắc */
+    --primary-color: #B4E9D6;       /* primary (Xanh lá nhạt) */
+    --neutral-color: #FCFCFC;       /* neutral (Màu nền trắng/sáng) */
+    --accent-color-dark: #32403B;   /* accet (Màu nhấn/chữ đậm) */
+    --primary-color-2: #9ECCCB;     /* primary 2 (Màu mới cho Footer) */
+    --primary-color-0: #BDF5E1;     /* primary_0 */
+
+    /* Các màu cho Project Cards */
+    --project-eztro: #9ECCCB;
+    --project-toto: #9ECCCB;
+    --project-driply: #9ECCCB;
+    
+    --project-section-bg: #B4E9D6; /* Màu nền cho Projects Section */
+    
+    --white-color: #FFFFFF;
+    --font-family: 'Arial', sans-serif;
+    /* !!! ĐÃ CHỈNH SỬA: ĐẶT LẠI THÀNH 120px !!! */
+    --outer-margin: 120px;
+    --grid-gutter: 24px; /* Gutter 24px */
+}
+
+/* 1. Đảm bảo thẻ html không bao giờ bị tràn ngang */
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    color: var(--accent-color-dark);
+    background-color: var(--neutral-color);
+}
+
+/* CONTAINER: Dùng cho Header, Projects, Footer */
+.container {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* --- 2. NAVIGATION BAR (HEADER) --- */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 20px 0;
+}
+
+.navbar .container {
+    padding: 0 var(--outer-margin);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* BỔ SUNG: Định kiểu cho liên kết (<a>) bên trong logo để giữ nguyên kiểu dáng */
+.logo a {
+    text-decoration: none; /* Loại bỏ gạch chân mặc định của liên kết */
+    color: var(--accent-color-dark); /* Đảm bảo màu chữ giống với biến đã khai báo */
+    font-weight: bold; /* Đảm bảo logo luôn hiển thị đậm */
+}
+.logo a:hover {
+    color: #50665E; /* Tùy chọn: Thay đổi màu chữ một chút khi di chuột */
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.navbar a {
+    text-decoration: none;
+    color: var(--accent-color-dark);
+    font-size: 1.25rem;
+    /* CHỈNH SỬA: BỎ PADDING Ở THẺ A CHUNG */
+    padding: 0; /* Loại bỏ padding mặc định 8px */
+    /* BỔ SUNG: Thêm display và position cho phép định vị hình tròn */
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* CHỈNH SỬA: Định kiểu chung cho các liên kết menu */
+.navbar nav > a {
+    padding: 8px; /* Đặt lại padding mặc định cho các liên kết */
+}
+
+.navbar nav > a:hover {
+    font-weight: 600;
+}
+
+/* === BỔ SUNG: ĐỊNH KIỂU CHO TRẠNG THÁI ACTIVE CỦA LIÊN KẾT NAV (PROJECT) === */
+.navbar nav a.active {
+    font-weight: bold; /* Luôn in đậm khi active */
+    /* Điều chỉnh padding trái: 8px (padding cũ) + 8px (gap) + 8px (circle) = 24px */
+    padding-left: 24px;
+    padding-right: 8px; /* Giữ padding phải mặc định */
+}
+
+/* Thêm hình tròn 8px bên trái cho trạng thái active */
+.navbar nav a.active::before { 
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color-dark); /* Màu của hình tròn */
+    border-radius: 50%;
+    
+    position: absolute;
+    /* Vị trí tuyệt đối: left 8px (tức là cách cạnh padding 8px) */
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Đảm bảo liên kết Active không thay đổi font-weight khi hover */
+.navbar nav a.active:hover {
+    font-weight: bold;
+}
+/* === KẾT THÚC BỔ SUNG CHO ACTIVE LINK === */
+
+
+/* [NÚT 1: CONTACT BUTTON] */
+.navbar .contact-btn { 
+    background-color: var(--accent-color-dark);
+    color: var(--primary-color);
+    border: 1px solid var(--accent-color-dark);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar .contact-btn:hover { 
+    background-color: #50665E;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.lang-switcher {
+    color: var(--accent-color-dark);
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+
+/* --- 3. HERO SECTION --- */
+.hero-section {
+    background-color: var(--primary-color);
+    padding: 60px 0;
+    max-width: 100%;
+}
+
+.hero-content {
+    margin: 0 auto;
+    padding: 0 var(--outer-margin);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gutter);
+    align-items: center;
+}
+
+.hero-image {
+    grid-column: span 4;
+    text-align: left;
+}
+
+.hero-gap {
+    grid-column: span 1;
+}
+
+.hero-text {
+    grid-column: span 7;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* --- PHẦN CHỈNH SỬA CHUNG CHO HEADING KHÁC --- */
+
+.section-header h2 {
+    font-size: 2.75rem;
+    font-weight: bold;
+}
+
+/* === FOOTER TEXT STYLES === */
+.contact-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.contact-info .email {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.contact-info .phone {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.copyright {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--accent-color-dark);
+    margin-top: 0;
+    padding-left: var(--outer-margin);
+}
+/* --- KẾT THÚC PHẦN CHỈNH SỬA CHUNG --- */
+
+
+/* --- PHẦN CHỈNH SỬA CHO HERO HEADING --- */
+
+.hero-text .main-title {
+    font-size: 3rem;
+    font-weight: normal;
+    color: var(--accent-color-dark);
+    margin-bottom: 20px;
+}
+
+.hero-text .main-title .greeting {
+    font-weight: normal;
+    margin-right: 15px;
+}
+
+.hero-text .main-title .name-highlight {
+    font-weight: bold;
+}
+
+.hero-text .designer-info {
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: var(--accent-color-dark);
+    line-height: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.hero-text .designer-info .highlight {
+    font-weight: bold;
+}
+
+/* --- KẾT THÚC PHẦN CHỈNH SỬA HERO --- */
+
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    font-size: 20px;
+    
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--accent-color-dark);
+    color: var(--primary-color);
+    border: 1px solid var(--accent-color-dark);
+}
+
+.btn-primary:hover {
+    background-color: #50665E;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color-dark);
+    border: 1px solid var(--accent-color-dark);
+}
+
+.btn-secondary:hover {
+    background-color: #BFF7E3;
+    color: var(--accent-color-dark);
+}
+
+.btn-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 0;
+}
+
+
+/* --- 4. PROJECTS SECTION --- */
+.projects-section {
+    background-color: var(--project-section-bg, #D4F4E5);
+    padding: 60px 0 120px;
+}
+
+.projects-section .container {
+    padding: 8px var(--outer-margin);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gutter);
+    margin-bottom: 24px;
+}
+
+/* --- PROJECT CARD --- */
+
+.project-card {
+    color: var(--white-color);
+    border-radius: 20px;
+    padding: 8px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    position: relative;
+    overflow: hidden;
+    
+    box-shadow: none;
+}
+
+.project-card h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: left;
+    
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 2;
+}
+
+.project-card img {
+    height: auto;
+    object-fit: cover;
+    
+    width: 100%;
+    height: 100%;
+
+    border-radius: 12px;
+    
+    position: static;
+    margin-top: 0;
+    align-self: center;
+    max-height: none;
+    
+    z-index: 1;
+}
+
+/* [MÀU CHO CARD project] */
+.card-project {
+    background-color: var(--project-eztro);
+}
+
+
+/* --- 5. FOOTER & CONTACT --- */
+footer {
+    background-color: var(--primary-color-2);
+    padding: 80px 0 0;
+    position: relative;
+    max-width: 100%;
+}
+
+.container.contact-footer {
+    padding: 0 var(--outer-margin);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-info {
+    margin-bottom: 32px;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.social-links p {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: var(--accent-color-dark);
+    font-weight: bold;
+    display: inline-block;
+}
+
+.social-icon .social-svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.footer-bottom {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.copyright {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--accent-color-dark);
+    margin-top: 0;
+    padding-left: var(--outer-margin);
+}
+
+/* [NÚT 4: SCROLL TOP BUTTON] */
+.scroll-top-btn {
+    position: absolute;
+    top: 50px;
+    /* Dùng giá trị cứng 120px cho right (120px là outer-margin cũ) */
+    right: 120px;
+    
+    bottom: auto;
+    left: auto;
+    transform: none;
+    
+    background-color: var(--accent-color-dark);
+    background-image: url('img/icons/btn_scroll.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px;
+    
+    border: none;
+    
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    
+    z-index: 10;
+    
+    display: block;
+}
+
+
+/* --- BỔ SUNG: 6. PROJECT PAGE / FILTER BAR --- */
+.project-filter-bar {
+    background-color: transparent; /* Bỏ nền xanh nhạt của section, dùng nền của projects-section */
+    padding: 0; /* Bỏ padding của section */
+    margin-bottom: 30px; /* Khoảng cách với projects-grid */
+    
+}
+
+.filter-container {
+    padding: 0; 
+    display: flex;
+    justify-content: flex-start;
+    gap: 24px; 
+    align-items: center;
+}
+
+/* Kiểu nút chung */
+.filter-btn {
+    background-color: var(--primary-color); /* Nền trắng */
+    /* CHỈNH SỬA: Thêm border cho các nút không active */
+    border: 2px solid var(--primary-color-2); 
+    color: var(--accent-color-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 12px; /* Tăng padding để khớp thiết kế */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Kiểu hover */
+.filter-btn:hover:not(.active) {
+    background-color: #BFF7E3; /* Nền xanh nhạt khi hover */
+    border-color: var(--primary-color-2); /* Border cũng chuyển sang màu xanh nhạt */
+}
+
+/* Trạng thái Active (Tất cả - Màu đậm) */
+.filter-btn.active {
+    background-color: var(--accent-color-dark); /* Màu nâu đậm */
+    color: var(--primary-color); /* Chữ màu trắng */
+    font-weight: 500;
+    border-color: var(--accent-color-dark); /* Border màu nâu đậm */
+    
+}
+
+/* Định kiểu số đếm */
+.filter-btn .count {
+    font-size: 1rem; /* Cùng size với chữ */
+    font-weight: 500;
+    margin-left: 4px;
+    padding: 0; 
+    background-color: transparent;
+    border-radius: 0;
+    color: inherit; /* Kế thừa màu chữ */
+}
+
+/* Số đếm trong nút Active (Màu đậm) */
+.filter-btn.active .count {
+    color: var(--primary-color); /* Màu xanh nhạt */
+}
+
+/* --- BỔ SUNG: 7. CHỈNH SỬA PHẦN NỘI DUNG VỀ TÔI --- */
+
+/* Khôi phục list-style: disc (dấu chấm) và điều chỉnh padding-left để dấu chấm hiển thị */
+.hero-text .about-list {
+    list-style: disc; /* Đảm bảo hiển thị dấu chấm */
+    padding-left: 20px; /* Thêm padding để dấu chấm có chỗ hiển thị */
+    margin-top: 0;
+    margin-bottom: 30px; /* Khoảng cách với hero-buttons */
+    font-size: 16px; /* Đã đổi thành 16px */
+    font-weight: 400;
+    line-height: 1.5; /* Giãn dòng */
+}
+
+/* Khoảng cách giữa các mục list */
+.hero-text .about-list li {
+    margin-bottom: 12px; /* Tạo khoảng cách giữa các mục */
+}
+
+/* Đảm bảo các từ in đậm hiển thị đúng font-weight */
+.hero-text .about-list li strong {
+    font-weight: bold;
+}

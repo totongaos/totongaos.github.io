@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Hong Dao (Totongaos)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-fontawesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">
+                <a href="./index.html">Totongaos</a>
+            </h1>
+            <nav>
+                <a href="project.html" class="active">Project</a>
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="#contact" class="btn btn-primary contact-btn" id="contact-nav-btn">
+                        Contact <img src="img/icons/arrow-down.svg" alt="Mũi tên xuống" class="btn-icon">
+                    </a>
+                </div>
+                <div class="lang-switcher">
+                    EN <img src="img/icons/chevron-down.svg" alt="Mũi tên xuống" class="btn-icon">
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="img\hero\img_hero_project.svg" alt="Hong Dao Illustration">
+            </div>
+            
+            <div class="hero-gap"></div>
+
+            <div class="hero-text">
+                
+                <h1 class="main-title">        
+                    <span class="name-highlight">Welcome to my design world</span>                    
+                </h1>
+                <h3 class="designer-info">                    
+                    This is where I share design projects, personal experiments, and ideas I’ve developed along my learning journey
+                </h3>
+                <div class="hero-buttons">
+                    <a href="about.html" class="btn btn-primary">View about me</a>
+                    <a href="#" class="btn btn-secondary">My CV <img src="img/icons/arrow-up-right.svg" alt="External Link Icon" class="btn-icon"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <div class="container">
+            <div class="project-filter-bar" style="padding: 0; margin-bottom: 30px;">
+                <div class="filter-container" style="align-items: center;">
+                    <p style="font-size: 1.25rem; font-weight: 700; color: var(--accent-color-dark); margin: 0;">Filter by:</p>
+                    <button class="filter-btn active">Tất cả <span class="count">(4)</span></button>
+                    <button class="filter-btn">Web app <span class="count">(1)</span></button>
+                    <button class="filter-btn">Mobile app <span class="count">(3)</span></button>
+                    <button class="filter-btn">UI Design <span class="count">(1)</span></button>
+                </div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card card-project">
+                    <img src="img/project/EzTro.png" alt="EzTro Project Mockup">
+                </div>
+                <div class="project-card card-project">
+                    <img src="img/project/Toto.png" alt="ToTo Project Mockup">                    
+                </div>
+                <div class="project-card card-project">
+                    <img src="img/project/Driply.png" alt="Driply Project Mockup">
+                </div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card card-project">
+                    <img src="img\project\Domi.png" alt="Domi Project Mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="container contact-footer">
+            <div class="contact-info">
+                <h3>Let's build something great together!</h3>
+                <p class="email">totongaos5@gmail.com</p>
+            </div>
+            <div class="contact-info">                
+                <p class="phone">036.387.4029</p>
+            </div>
+            <div class="social-links">
+                <p>Follow me:</p>
+                <a href="https://www.behance.net/" class="social-icon" title="Behance" **target="_blank"**>
+                    <img src="img/icons/behance.svg" alt="Behance Icon" class="social-svg"> 
+                </a>
+                <a href="https://dribbble.com/" class="social-icon" title="Dribbble" **target="_blank"**>
+                    <img src="img/icons/dribbble-line.svg" alt="Dribbble Icon" class="social-svg"> 
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+             <p class="copyright">Copyright © 2025 by Hong Dao (Totongaos)</p>
+        </div>
+        <button class="scroll-top-btn" onclick="window.scrollTo(0, 0);">
+        </button>
+    </footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>

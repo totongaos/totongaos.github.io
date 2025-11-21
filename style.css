@@ -1,19 +1,19 @@
 /* --- 1. RESET và biến CSS --- */
 :root {
     /* Màu sắc */
-    --primary-color: #B4E9D6;       /* primary (Xanh lá nhạt) */
+    --primary-color: #F2D2DC;  /* primary (Xanh lá nhạt) */
     --neutral-color: #FCFCFC;       /* neutral (Màu nền trắng/sáng) */
-    --accent-color-dark: #32403B;   /* accet (Màu nhấn/chữ đậm) */
-    --primary-color-2: #9ECCCB;     /* primary 2 (Màu mới cho Footer) */
-    --primary-color-0: #BDF5E1;     /* primary_0 */
+    --accent-color-dark: #2C2C2C;   /* accet (Màu nhấn/chữ đậm) */
+    --primary-color-2: #F0A7B6;     /* primary 2 (Màu mới cho Footer) */
+    --primary-color-0: #FDE2E8;     /* primary_0 */
 
     /* Các màu cho Project Cards */
     --project-eztro: #9ECCCB;
     --project-toto: #9ECCCB;
     --project-driply: #9ECCCB;
     
-    --project-section-bg: #B4E9D6; /* Màu nền cho Projects Section */
-    --project-hover-bg: #B4E9D6;   /* Màu nền khi hover */
+    --project-section-bg: #F2D2DC; /* Màu nền cho Projects Section */
+    --project-hover-bg: #FDE2E8;   /* Màu nền khi hover */
     
     --white-color: #FFFFFF;
     --font-family: 'Arial', sans-serif;
@@ -74,7 +74,7 @@ body {
     font-weight: bold; 
 }
 .logo a:hover {
-    color: #50665E; 
+    color: #404040; 
 }
 
 .navbar nav {
@@ -140,7 +140,7 @@ body {
 }
 
 .navbar .contact-btn:hover { 
-    background-color: #50665E;
+    background-color: #404040;
     color: var(--primary-color);
     font-weight: 500;
 }
@@ -202,6 +202,7 @@ body {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 8px;
+    color: var(--accent-color-dark);
 }
 
 .contact-info .phone {
@@ -273,7 +274,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #50665E;
+    background-color: #404040;
 }
 
 .btn-secondary {
@@ -283,7 +284,7 @@ body {
 }
 
 .btn-secondary:hover {
-    background-color: #BFF7E3;
+    background-color: var(--project-hover-bg);
     color: var(--accent-color-dark);
 }
 
@@ -390,7 +391,7 @@ body {
 
 /* Tag (Pill Shape) */
 .project-tag {
-    background-color: #9ECCCB;
+    background-color: var(--primary-color);
     color: var(--accent-color-dark);
     padding: 8px 12px;
     border-radius: 8px;
@@ -410,7 +411,7 @@ body {
     font-size: 1.25rem; /* 20px */
     font-weight: 550;
     margin: 0 0 16px 0;
-    color: #40514B;
+    color: #404040;
 }
 
 .card-body .description {
@@ -418,7 +419,7 @@ body {
     font-weight: 400;
     line-height: 1.3;
     margin-bottom: 24px;
-    color: #658076
+    color: #666666
 }
 
 /* Button View Detail */
@@ -441,7 +442,7 @@ body {
 }
 
 .card-body .view-detail-btn:hover {
-    background-color: #50665E;
+    background-color: #404040;
 }
 
 /* --- FIX MÀU ICON --- */
@@ -600,7 +601,7 @@ footer {
 }
 
 .filter-btn:hover:not(.active) {
-    background-color: #BFF7E3; 
+    background-color: var(--project-hover-bg); 
     border-color: var(--primary-color-2); 
 }
 

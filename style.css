@@ -1,7 +1,7 @@
 /* --- 1. RESET và biến CSS --- */
 :root {
     /* Màu sắc */
-    --primary-color: #F2D2DC;  /* primary (Xanh lá nhạt) */
+    --primary-color: #F2D2DB;  /* primary (Xanh lá nhạt) */
     --neutral-color: #FCFCFC;       /* neutral (Màu nền trắng/sáng) */
     --accent-color-dark: #2C2C2C;   /* accet (Màu nhấn/chữ đậm) */
     --primary-color-2: #F0A7B6;     /* primary 2 (Màu mới cho Footer) */
@@ -653,4 +653,70 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+/* =========================================
+   PAGE LOADER STYLES
+   ========================================= */
+
+/* =========================================
+   PAGE LOADER STYLES (KIỂU PULSE / NHỊP ĐẬP)
+   ========================================= */
+#page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color-2);
+    z-index: 9999; /* Luôn nằm trên cùng */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Class này dùng để ẩn loader */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* --- HIỆU ỨNG NHỊP ĐẬP (PULSE) --- */
+.pulse-spinner {
+    width: 60px;
+    height: 60px;
+    /* Dùng màu chủ đạo đậm (đen xám) làm khối tròn */
+    background-color: var(--accent-color-dark);
+    border-radius: 50%;
+    /* Animation pulse chạy trong 1.5 giây lặp lại */
+    animation: pulse 1.5s infinite ease-in-out;
+    margin-bottom: 20px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0); /* Bắt đầu từ nhỏ xíu */
+        opacity: 1;          /* Đậm */
+    }
+    100% {
+        transform: scale(1.5); /* Phóng to ra 1.5 lần */
+        opacity: 0;            /* Mờ dần đến khi biến mất */
+    }
+}
+
+.loader-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-color-dark);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.5; }
 }

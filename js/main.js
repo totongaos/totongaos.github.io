@@ -83,3 +83,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+// ==========================================
+// PAGE LOADER LOGIC (3 Seconds)
+// ==========================================
+
+// ==========================================
+// PAGE LOADER LOGIC (3 Giây)
+// ==========================================
+window.addEventListener('load', function() {
+    const loader = document.getElementById('page-loader');
+    
+    // Chỉ chạy nếu tìm thấy loader trong HTML
+    if (loader) {
+        // Đợi 1500ms
+        setTimeout(function() {
+            // Thêm class 'loader-hidden' để kích hoạt hiệu ứng mờ dần trong CSS
+            loader.classList.add('loader-hidden');
+            
+            // Sau khi mờ xong thì xóa hẳn khỏi HTML cho nhẹ web
+            loader.addEventListener('transitionend', function() {
+                loader.remove();
+            });
+        }, 1500);
+    }
+});

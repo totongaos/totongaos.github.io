@@ -8,9 +8,8 @@
     --primary-color-0: #FDE2E8;     /* primary_0 */
 
     /* Các màu cho Project Cards */
-    --project-eztro: #9ECCCB;
-    --project-toto: #9ECCCB;
-    --project-driply: #9ECCCB;
+    --project-color-boder: #D4B8C0;
+
     
     --project-section-bg: #F2D2DC; /* Màu nền cho Projects Section */
     --project-hover-bg: #FDE2E8;   /* Màu nền khi hover */
@@ -323,7 +322,6 @@ body {
 /* --- PROJECT CARD --- */
 
 .project-card {
-    color: var(--white-color);
     border-radius: 20px;
     padding: 8px;
     
@@ -482,7 +480,7 @@ body {
 
 /* Màu nền thẻ default */
 .card-project {
-    background-color: var(--project-eztro);
+    background-color: var(--project-color-boder);
 }
 
 

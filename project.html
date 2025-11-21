@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ - Hong Dao (Totongaos)</title>
+    <title>Dự Án - Hong Dao (Totongaos)</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-fontawesome/6.5.2/css/all.min.css">
 </head>
@@ -31,13 +31,12 @@
     <section class="hero-section">
         <div class="hero-content">
             <div class="hero-image">
-                <img src="img\hero\img_hero_project.svg" alt="Hong Dao Illustration">
+                <img src="img/hero/img_hero_project.svg" alt="Hong Dao Illustration">
             </div>
             
             <div class="hero-gap"></div>
 
             <div class="hero-text">
-                
                 <h1 class="main-title">        
                     <span class="name-highlight">Welcome to my design world</span>                    
                 </h1>
@@ -54,30 +53,98 @@
 
     <section class="projects-section">
         <div class="container">
-            <div class="project-filter-bar" style="padding: 0; margin-bottom: 30px;">
-                <div class="filter-container" style="align-items: center;">
+            <div class="project-filter-bar">
+                <div class="filter-container">
                     <p style="font-size: 1.25rem; font-weight: 700; color: var(--accent-color-dark); margin: 0;">Filter by:</p>
-                    <button class="filter-btn active">Tất cả <span class="count">(4)</span></button>
-                    <button class="filter-btn">Web app <span class="count">(1)</span></button>
-                    <button class="filter-btn">Mobile app <span class="count">(3)</span></button>
-                    <button class="filter-btn">UI Design <span class="count">(1)</span></button>
+                    <button class="filter-btn active" data-filter="all">All <span class="count">(4)</span></button>
+                    <button class="filter-btn" data-filter="web-app">Web app <span class="count">(1)</span></button>
+                    <button class="filter-btn" data-filter="mobile-app">Mobile app <span class="count">(2)</span></button>
+                    <button class="filter-btn" data-filter="ui-design">UI Design <span class="count">(1)</span></button>
                 </div>
             </div>
+
             <div class="projects-grid">
-                <div class="project-card card-project">
-                    <img src="img/project/EzTro.png" alt="EzTro Project Mockup">
+                
+                <div class="project-card card-project" data-category="mobile-app">
+                    <img src="img/project/EzTro.png" alt="EzTro Project Mockup" class="card-bg-img">
+                    <div class="project-hover-content">
+                        <div class="card-top-row">
+                            <h3>EzTro</h3>
+                            <span class="project-tag">Mobile app</span>
+                        </div>
+                        <div class="card-body">
+                            <h4>Rental Management App</h4>
+                            <p class="description">EzTro helps landlords manage rooms without excel or manual work. You can calculate bills, track payments, and send reminders in one simple app.</p>
+                            <a href="project.html" class="view-detail-btn">
+                                View detail <img src="img/icons/arrow-up-right.svg" alt="Icon" class="btn-icon">
+                            </a>
+                        </div>
+                        <div class="card-footer">
+                            <p class="date">15.08.2025</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-card card-project">
-                    <img src="img/project/Toto.png" alt="ToTo Project Mockup">                    
+
+                <div class="project-card card-project" data-category="web-app">
+                    <img src="img/project/Toto.png" alt="ToTo Project Mockup" class="card-bg-img">
+                    <div class="project-hover-content">
+                        <div class="card-top-row">
+                            <h3>Toto</h3>
+                            <span class="project-tag">Web app</span>
+                        </div>
+                        <div class="card-body">
+                            <h4>Timekeeping App</h4>
+                            <p class="description">Toto is a web app that helps employees check in quickly, accurately and transparently.</p>
+                            <a href="project.html" class="view-detail-btn">
+                                View detail <img src="img/icons/arrow-up-right.svg" alt="Icon" class="btn-icon">
+                            </a>
+                        </div>
+                        <div class="card-footer">
+                            <p class="date">15.07.2025</p>
+                        </div>
+                    </div>                 
                 </div>
-                <div class="project-card card-project">
-                    <img src="img/project/Driply.png" alt="Driply Project Mockup">
+
+                <div class="project-card card-project" data-category="mobile-app">
+                    <img src="img/project/Driply.png" alt="Driply Project Mockup" class="card-bg-img">
+                    <div class="project-hover-content">
+                        <div class="card-top-row">
+                            <h3>Driply</h3>
+                            <span class="project-tag">Mobile app</span>
+                        </div>
+                        <div class="card-body">
+                            <h4>Water drinking reminder app</h4>
+                            <p class="description">Driply reminds you to drink water regularly. This little friend will help you build the habit of staying hydrated every day.</p>
+                            <a href="project.html" class="view-detail-btn">
+                                View detail <img src="img/icons/arrow-up-right.svg" alt="Icon" class="btn-icon">
+                            </a>
+                        </div>
+                        <div class="card-footer">
+                            <p class="date">08.07.2025</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card card-project">
-                    <img src="img\project\Domi.png" alt="Domi Project Mockup">
+
+                <div class="project-card card-project" data-category="ui-design">
+                    <img src="img/project/Domi.png" alt="Domi Project Mockup" class="card-bg-img">
+                    <div class="project-hover-content">
+                        <div class="card-top-row">
+                            <h3>Domi</h3>
+                            <span class="project-tag">UI Design</span>
+                        </div>
+                        <div class="card-body">
+                            <h4>Document Storage App</h4>
+                            <p class="description">Domi is an app that helps you save and organize important documents such as vehicle papers, bank documents, passports, and more.</p>
+                            <a href="project.html" class="view-detail-btn">
+                                View detail <img src="img/icons/arrow-up-right.svg" alt="Icon" class="btn-icon">
+                            </a>
+                        </div>
+                        <div class="card-footer">
+                            <p class="date">01.09.2024</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -93,10 +160,10 @@
             </div>
             <div class="social-links">
                 <p>Follow me:</p>
-                <a href="https://www.behance.net/" class="social-icon" title="Behance" **target="_blank"**>
+                <a href="https://www.behance.net/" class="social-icon" title="Behance" target="_blank">
                     <img src="img/icons/behance.svg" alt="Behance Icon" class="social-svg"> 
                 </a>
-                <a href="https://dribbble.com/" class="social-icon" title="Dribbble" **target="_blank"**>
+                <a href="https://dribbble.com/" class="social-icon" title="Dribbble" target="_blank">
                     <img src="img/icons/dribbble-line.svg" alt="Dribbble Icon" class="social-svg"> 
                 </a>
             </div>

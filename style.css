@@ -13,12 +13,12 @@
     --project-driply: #9ECCCB;
     
     --project-section-bg: #B4E9D6; /* Màu nền cho Projects Section */
+    --project-hover-bg: #B4E9D6;   /* Màu nền khi hover */
     
     --white-color: #FFFFFF;
     --font-family: 'Arial', sans-serif;
-    /* !!! ĐÃ CHỈNH SỬA: ĐẶT LẠI THÀNH 120px !!! */
     --outer-margin: 120px;
-    --grid-gutter: 24px; /* Gutter 24px */
+    --grid-gutter: 24px; 
 }
 
 /* 1. Đảm bảo thẻ html không bao giờ bị tràn ngang */
@@ -68,14 +68,13 @@ body {
     font-weight: bold;
 }
 
-/* BỔ SUNG: Định kiểu cho liên kết (<a>) bên trong logo để giữ nguyên kiểu dáng */
 .logo a {
-    text-decoration: none; /* Loại bỏ gạch chân mặc định của liên kết */
-    color: var(--accent-color-dark); /* Đảm bảo màu chữ giống với biến đã khai báo */
-    font-weight: bold; /* Đảm bảo logo luôn hiển thị đậm */
+    text-decoration: none; 
+    color: var(--accent-color-dark); 
+    font-weight: bold; 
 }
 .logo a:hover {
-    color: #50665E; /* Tùy chọn: Thay đổi màu chữ một chút khi di chuột */
+    color: #50665E; 
 }
 
 .navbar nav {
@@ -87,55 +86,44 @@ body {
     text-decoration: none;
     color: var(--accent-color-dark);
     font-size: 1.25rem;
-    /* CHỈNH SỬA: BỎ PADDING Ở THẺ A CHUNG */
-    padding: 0; /* Loại bỏ padding mặc định 8px */
-    /* BỔ SUNG: Thêm display và position cho phép định vị hình tròn */
+    padding: 0; 
     display: flex;
     align-items: center;
     position: relative;
 }
 
-/* CHỈNH SỬA: Định kiểu chung cho các liên kết menu */
 .navbar nav > a {
-    padding: 8px; /* Đặt lại padding mặc định cho các liên kết */
+    padding: 8px; 
 }
 
 .navbar nav > a:hover {
     font-weight: 600;
 }
 
-/* === BỔ SUNG: ĐỊNH KIỂU CHO TRẠNG THÁI ACTIVE CỦA LIÊN KẾT NAV (PROJECT) === */
 .navbar nav a.active {
-    font-weight: bold; /* Luôn in đậm khi active */
-    /* Điều chỉnh padding trái: 8px (padding cũ) + 8px (gap) + 8px (circle) = 24px */
+    font-weight: bold; 
     padding-left: 24px;
-    padding-right: 8px; /* Giữ padding phải mặc định */
+    padding-right: 8px; 
 }
 
-/* Thêm hình tròn 8px bên trái cho trạng thái active */
 .navbar nav a.active::before { 
     content: '';
     display: block;
     width: 8px;
     height: 8px;
-    background-color: var(--accent-color-dark); /* Màu của hình tròn */
+    background-color: var(--accent-color-dark); 
     border-radius: 50%;
     
     position: absolute;
-    /* Vị trí tuyệt đối: left 8px (tức là cách cạnh padding 8px) */
     left: 8px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* Đảm bảo liên kết Active không thay đổi font-weight khi hover */
 .navbar nav a.active:hover {
     font-weight: bold;
 }
-/* === KẾT THÚC BỔ SUNG CHO ACTIVE LINK === */
 
-
-/* [NÚT 1: CONTACT BUTTON] */
 .navbar .contact-btn { 
     background-color: var(--accent-color-dark);
     color: var(--primary-color);
@@ -198,8 +186,6 @@ body {
     height: auto;
 }
 
-/* --- PHẦN CHỈNH SỬA CHUNG CHO HEADING KHÁC --- */
-
 .section-header h2 {
     font-size: 2.75rem;
     font-weight: bold;
@@ -230,10 +216,9 @@ body {
     margin-top: 0;
     padding-left: var(--outer-margin);
 }
-/* --- KẾT THÚC PHẦN CHỈNH SỬA CHUNG --- */
 
 
-/* --- PHẦN CHỈNH SỬA CHO HERO HEADING --- */
+/* --- HERO HEADING --- */
 
 .hero-text .main-title {
     font-size: 3rem;
@@ -262,9 +247,6 @@ body {
 .hero-text .designer-info .highlight {
     font-weight: bold;
 }
-
-/* --- KẾT THÚC PHẦN CHỈNH SỬA HERO --- */
-
 
 .hero-buttons {
     display: flex;
@@ -315,7 +297,7 @@ body {
 
 /* --- 4. PROJECTS SECTION --- */
 .projects-section {
-    background-color: var(--project-section-bg, #D4F4E5);
+    background-color: var(--project-section-bg);
     padding: 60px 0 120px;
 }
 
@@ -352,37 +334,152 @@ body {
     overflow: hidden;
     
     box-shadow: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-card h3 {
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: left;
-    
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    z-index: 2;
-}
-
-.project-card img {
-    height: auto;
-    object-fit: cover;
-    
+/* HÌNH ẢNH (Background mặc định) */
+.card-bg-img {
     width: 100%;
     height: 100%;
-
+    object-fit: cover;
     border-radius: 12px;
-    
-    position: static;
-    margin-top: 0;
-    align-self: center;
-    max-height: none;
-    
     z-index: 1;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* [MÀU CHO CARD project] */
+/* === CONTAINER NỘI DUNG HOVER === */
+.project-hover-content {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border-radius: 12px;
+    
+    /* Màu nền của overlay: Xanh nhạt giống nền Section */
+    background-color: var(--project-hover-bg);
+    padding: 32px 24px; /* Padding giống thiết kế */
+    
+    display: flex;
+    flex-direction: column;
+    
+    opacity: 0; /* MẶC ĐỊNH ẨN */
+    z-index: 2;
+    transition: opacity 0.3s ease;
+    
+    color: var(--accent-color-dark);
+}
+
+/* 1. DÒNG TRÊN CÙNG (Tiêu đề + Tag) */
+.card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.card-top-row h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+    color: var(--accent-color-dark);
+}
+
+/* Tag (Pill Shape) */
+.project-tag {
+    background-color: #9ECCCB;
+    color: var(--accent-color-dark);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* 2. PHẦN GIỮA (Subtitle + Desc + Btn) */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1; /* Chiếm khoảng trống ở giữa */
+}
+
+.card-body h4 {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 550;
+    margin: 0 0 16px 0;
+    color: #40514B;
+}
+
+.card-body .description {
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 24px;
+    color: #658076
+}
+
+/* Button View Detail */
+.card-body .view-detail-btn {
+    background-color: var(--accent-color-dark);
+    color: var(--white-color);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.125rem;
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+    
+    transition: background-color 0.3s;
+}
+
+.card-body .view-detail-btn:hover {
+    background-color: #50665E;
+}
+
+/* --- FIX MÀU ICON --- */
+/* Ép màu icon (img svg) thành trắng để giống text */
+.card-body .view-detail-btn .btn-icon {
+    filter: brightness(0) invert(1);
+}
+
+
+/* 3. DÒNG CUỐI (Date) */
+.card-footer {
+    margin-top: auto;
+}
+
+.card-footer .date {
+    font-size: 0.75
+    font-weight: 400;
+    margin: 0;
+    color: var(--accent-color-dark);
+}
+
+/* === CÁC TRẠNG THÁI HOVER === */
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Khi hover: Hiện Overlay nội dung */
+.project-card:hover .project-hover-content {
+    opacity: 0.96; /* Hiện rõ nội dung, gần như che phủ hoàn toàn */
+}
+
+/* Khi hover: Ảnh nền phóng to nhẹ và mờ đi để làm nền */
+.project-card:hover .card-bg-img {
+    transform: scale(1.05);
+    opacity: 0.2; /* Mờ đi thành watermark */
+}
+
+/* Màu nền thẻ default */
 .card-project {
     background-color: var(--project-eztro);
 }
@@ -446,11 +543,9 @@ footer {
     padding-left: var(--outer-margin);
 }
 
-/* [NÚT 4: SCROLL TOP BUTTON] */
 .scroll-top-btn {
     position: absolute;
     top: 50px;
-    /* Dùng giá trị cứng 120px cho right (120px là outer-margin cũ) */
     right: 120px;
     
     bottom: auto;
@@ -478,13 +573,10 @@ footer {
     display: block;
 }
 
-
-/* --- BỔ SUNG: 6. PROJECT PAGE / FILTER BAR --- */
 .project-filter-bar {
-    background-color: transparent; /* Bỏ nền xanh nhạt của section, dùng nền của projects-section */
-    padding: 0; /* Bỏ padding của section */
-    margin-bottom: 30px; /* Khoảng cách với projects-grid */
-    
+    background-color: transparent; 
+    padding: 0; 
+    margin-bottom: 30px; 
 }
 
 .filter-container {
@@ -495,70 +587,71 @@ footer {
     align-items: center;
 }
 
-/* Kiểu nút chung */
 .filter-btn {
-    background-color: var(--primary-color); /* Nền trắng */
-    /* CHỈNH SỬA: Thêm border cho các nút không active */
+    background-color: var(--primary-color); 
     border: 2px solid var(--primary-color-2); 
     color: var(--accent-color-dark);
     font-size: 1rem;
     font-weight: 500;
-    padding: 8px 12px; /* Tăng padding để khớp thiết kế */
+    padding: 8px 12px; 
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-/* Kiểu hover */
 .filter-btn:hover:not(.active) {
-    background-color: #BFF7E3; /* Nền xanh nhạt khi hover */
-    border-color: var(--primary-color-2); /* Border cũng chuyển sang màu xanh nhạt */
+    background-color: #BFF7E3; 
+    border-color: var(--primary-color-2); 
 }
 
-/* Trạng thái Active (Tất cả - Màu đậm) */
 .filter-btn.active {
-    background-color: var(--accent-color-dark); /* Màu nâu đậm */
-    color: var(--primary-color); /* Chữ màu trắng */
+    background-color: var(--accent-color-dark); 
+    color: var(--primary-color); 
     font-weight: 500;
-    border-color: var(--accent-color-dark); /* Border màu nâu đậm */
-    
+    border-color: var(--accent-color-dark); 
 }
 
-/* Định kiểu số đếm */
 .filter-btn .count {
-    font-size: 1rem; /* Cùng size với chữ */
+    font-size: 1rem; 
     font-weight: 500;
     margin-left: 4px;
     padding: 0; 
     background-color: transparent;
     border-radius: 0;
-    color: inherit; /* Kế thừa màu chữ */
+    color: inherit; 
 }
 
-/* Số đếm trong nút Active (Màu đậm) */
 .filter-btn.active .count {
-    color: var(--primary-color); /* Màu xanh nhạt */
+    color: var(--primary-color); 
 }
 
-/* --- BỔ SUNG: 7. CHỈNH SỬA PHẦN NỘI DUNG VỀ TÔI --- */
-
-/* Khôi phục list-style: disc (dấu chấm) và điều chỉnh padding-left để dấu chấm hiển thị */
 .hero-text .about-list {
-    list-style: disc; /* Đảm bảo hiển thị dấu chấm */
-    padding-left: 20px; /* Thêm padding để dấu chấm có chỗ hiển thị */
+    list-style: disc; 
+    padding-left: 20px; 
     margin-top: 0;
-    margin-bottom: 30px; /* Khoảng cách với hero-buttons */
-    font-size: 16px; /* Đã đổi thành 16px */
+    margin-bottom: 30px; 
+    font-size: 16px; 
     font-weight: 400;
-    line-height: 1.5; /* Giãn dòng */
+    line-height: 1.5; 
 }
 
-/* Khoảng cách giữa các mục list */
 .hero-text .about-list li {
-    margin-bottom: 12px; /* Tạo khoảng cách giữa các mục */
+    margin-bottom: 12px; 
 }
 
-/* Đảm bảo các từ in đậm hiển thị đúng font-weight */
 .hero-text .about-list li strong {
     font-weight: bold;
+}
+
+
+/* Animation cho Filter */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

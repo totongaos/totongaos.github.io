@@ -14,21 +14,28 @@
             <h1 class="logo">
                 <a href="./index.html">Totongaos</a>
             </h1>
-            <nav>
-                <a href="project.html">Project</a>
-                <a href="about.html" class="active">About</a>
-                <div class="dropdown">
-                    <a href="#contact" class="btn btn-primary contact-btn" id="contact-nav-btn">
-                        Contact <img src="img/icons/arrow-down.svg" alt="Mũi tên xuống" class="btn-icon">
-                    </a>
-                </div>
-                <div class="lang-switcher">
-                    EN <img src="img/icons/chevron-down.svg" alt="Mũi tên xuống" class="btn-icon">
-                </div>
-            </nav>
-        </div>
+            
+            <img src="img/icons/menu.svg" alt="Menu Icon" class="menu-icon menu-open-icon">
+            </div>
     </header>
 
+    <div id="fullscreen-menu" class="menu-overlay">
+        <div class="container menu-header">
+            <h1 class="logo">
+                <a href="./index.html">Totongaos</a>
+            </h1>
+            <img src="img/icons/close.svg" alt="Close Menu Icon" class="menu-icon menu-close-icon"> 
+        </div>
+        
+        <nav class="menu-links">
+            <a href="./index.html">Homepage</a>
+            <a href="project.html">Project</a>
+            <a href="about.html">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        
+        <p class="menu-copyright">Copyright © 2025 by Hong Dao (Totongaos)</p>
+    </div>
     <section class="hero-section">
         <div class="hero-content">
             <div class="hero-image">
@@ -69,32 +76,94 @@
         </div>
     </section>
 
-    
-    
-    <footer id="contact">
-        <div class="container contact-footer">
-            <div class="contact-info">
-                <h3>Let's build something great together!</h3>
-                <p class="email">totongaos5@gmail.com</p>
+
+    <!--  =========================================
+     SKILLS & EXPERTISE SECTION
+   =========================================  -->
+  <section class="skills-section">
+    <div class="container">
+        <h2 class="skills-title">My Skills & Expertise</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <img src="img\icons\icon_Ux.svg" alt="UX Design Icon"> 
+                </div>
+                <h3 class="skill-name">UX Design</h3>
+                <div class="skill-tags">
+                    <span>UX Research</span>
+                    <span>User Flow & Wireframing</span>
+                    <span>Usability Testing</span>
+                </div>
             </div>
-            <div class="contact-info">                
-                <p class="phone">036.387.4029</p>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <img src="img\icons\icon_UI_design.svg" alt="UI Design Icon">
+                </div>
+                <h3 class="skill-name">UI Design</h3>
+                <div class="skill-tags">
+                    <span>Figma</span>
+                    <span>Lottielab</span>
+                    <span>Protopie</span>
+                    <span>Webflow</span>
+                    <span>Ai</span>
+                    <span>Ps</span>
+                </div>
             </div>
-            <div class="social-links">
-                <p>Follow me:</p>
-                <a href="https://www.behance.net/" class="social-icon" title="Behance" **target="_blank"**>
-                    <img src="img/icons/behance.svg" alt="Behance Icon" class="social-svg"> 
-                </a>
-                <a href="https://dribbble.com/" class="social-icon" title="Dribbble" **target="_blank"**>
-                    <img src="img/icons/dribbble-line.svg" alt="Dribbble Icon" class="social-svg"> 
-                </a>
+
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <img src="img\icons\icon_code.svg" alt="Front-end Basics Icon">
+                </div>
+                <h3 class="skill-name">Front-end Basics</h3>
+                <div class="skill-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>SQL</span>
+                    <span>Python (Basic)</span>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-             <p class="copyright">Copyright © 2025 by Hong Dao (Totongaos)</p>
+    </div>
+</section>
+    
+    
+   <footer id="contact">
+        <div class="container footer-wrapper">
+            
+            <div class="footer-left">
+                <h2 class="cta-heading">Let's build something <br> great together!</h2>
+                <a href="mailto:totongaos5@gmail.com" class="footer-email">totongaos5@gmail.com</a>
+            </div>
+
+            <div class="footer-right">
+                <nav class="footer-nav">
+                    <a href="./index.html">Homepage</a>
+                    <a href="project.html">Project</a>
+                    <a href="about.html">About</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+
+                <div class="footer-social-block">
+                    <span class="label">Follow</span>
+                    <div class="social-icons">
+                        <a href="https://dribbble.com/" target="_blank" title="Dribbble">
+                            <img src="img/icons/dribbble-line.svg" alt="Dribbble Icon" class="social-svg">
+                        </a>
+                        <a href="https://www.behance.net/" target="_blank" title="Behance">
+                            <img src="img/icons/behance.svg" alt="Behance Icon" class="social-svg">
+                        </a>
+                    </div>
+                </div>
+
+                <p class="copyright-text">Copyright © 2025 by Hong Dao (Totongaos)</p>
+            </div>
         </div>
-        <button class="scroll-top-btn" onclick="window.scrollTo(0, 0);">
-        </button>
+
+        <div class="footer-watermark">TOTONGAOS</div>
+
+       
     </footer>
 
     <script src="./js/main.js"></script>

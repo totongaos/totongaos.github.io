@@ -109,3 +109,43 @@ window.addEventListener('load', function() {
         }, 1500);
     }
 });
+
+
+
+// File: js/main.js
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuOpenBtn = document.querySelector('.menu-open-icon');
+    const menuCloseBtn = document.querySelector('.menu-close-icon');
+    const fullscreenMenu = document.getElementById('fullscreen-menu');
+    const menuLinks = document.querySelectorAll('.menu-links a');
+
+    // 1. Mở Menu
+    if (menuOpenBtn && fullscreenMenu) {
+        menuOpenBtn.addEventListener('click', function() {
+            fullscreenMenu.classList.add('show-menu');
+            // Ngăn cuộn body khi menu mở (tùy chọn)
+            document.body.style.overflow = 'hidden'; 
+        });
+    }
+
+    // 2. Đóng Menu (bằng icon menu)
+    if (menuCloseBtn && fullscreenMenu) {
+        menuCloseBtn.addEventListener('click', function() {
+            fullscreenMenu.classList.remove('show-menu');
+            // Cho phép body cuộn lại
+            document.body.style.overflow = ''; 
+        });
+    }
+    
+    // 3. Đóng Menu khi click vào 1 liên kết
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Chỉ đóng nếu là liên kết nội bộ
+            if (link.getAttribute('href').startsWith('#') || link.getAttribute('href').endsWith('.html')) {
+                fullscreenMenu.classList.remove('show-menu');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+});

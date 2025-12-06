@@ -723,7 +723,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .footer-nav a {
@@ -743,8 +743,8 @@ footer {
 .footer-social-block {
     display: flex;
     align-items: center;
-    gap: 20px;
-    margin-bottom: 40px;
+    gap: 12px;
+    margin-bottom: 24px;
 }
 
 .footer-social-block .label {
@@ -820,13 +820,15 @@ footer {
     }
 
     .footer-left {
-        margin-bottom: 60px;
+        margin-bottom: 24px;
         padding-right: 0;
-        align-items: flex-start; /* Reset lại alignment cho mobile */
+        /* CĂN GIỮA: Căn ngang (align-items) khi flex-direction: column */
+        align-items: center; 
+        text-align: center; /* Cần thiết cho h2, a */
     }
     
     .cta-heading {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
     
     /* Điều chỉnh email nhỏ lại trên mobile */
@@ -839,9 +841,11 @@ footer {
         border-left: none; /* Bỏ kẻ dọc trên mobile */
         border-top: 1px solid var(--accent-color-dark); /* Thay bằng kẻ ngang */
         padding-left: 0;
-        padding-top: 30px;
+        padding-top: 24px;
         flex: auto;
         width: 100%;
+        /* CĂN GIỮA: Căn ngang (align-items) khi flex-direction: column */
+        align-items: center;
     }
     
     .footer-watermark {
@@ -1158,14 +1162,15 @@ footer {
         min-height: 400px; /* Đảm bảo chiều cao để hiển thị ảnh */
     }
 
-    /* Trên Mobile, chạm vào là hiện nội dung luôn (giả lập hover) */
-    .project-card .project-hover-content {
-        opacity: 0; /* Giữ nguyên hiệu ứng hover hoặc bạn có thể để opacity: 1 nếu muốn hiện luôn text */
+    /* Hiển thị nội dung khi có class .show-content */
+    .project-card.show-content .project-hover-content {
+        opacity: 0.96; 
     }
     
-    .project-card:active .project-hover-content,
-    .project-card:focus-within .project-hover-content {
-        opacity: 1;
+    /* Ẩn hình ảnh và phóng to nhẹ khi có class .show-content */
+    .project-card.show-content .card-bg-img {
+        transform: scale(1.05);
+        opacity: 0.2;
     }
 
     /* Project Filter Bar (Trang Project) */
@@ -1196,7 +1201,7 @@ footer {
 
     /* Footer adjustments */
     .cta-heading {
-        font-size: 2.5rem; /* Giảm chữ Footer */
+        font-size: 3rem; /* Giảm chữ Footer */
     }
 
     .footer-email {
@@ -1206,11 +1211,11 @@ footer {
 
     .footer-watermark {
         font-size: 4rem; /* Giảm chữ nền TOTONGAOS */
-        bottom: 10px;
+        bottom: -20px;
     }
     
     .footer-wrapper {
-        padding-bottom: 80px;
+        padding-bottom: 60px;
     }
 
     /* About Page Skills */

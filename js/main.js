@@ -153,3 +153,98 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// File: js/main.js (Thêm vào cuối file)
+document.addEventListener('DOMContentLoaded', function() {
+    // === 1. LOGIC CHO MENU FULLSCREEN ===
+    const menuOpenIcon = document.querySelector('.menu-open-icon');
+    const menuCloseIcon = document.querySelector('.menu-close-icon');
+    const fullscreenMenu = document.getElementById('fullscreen-menu');
+    const menuLinks = document.querySelectorAll('.menu-links a');
+    
+    // Mở menu
+    if (menuOpenIcon) {
+        menuOpenIcon.addEventListener('click', function() {
+            fullscreenMenu.classList.add('open');
+        });
+    }
+
+    // Đóng menu
+    if (menuCloseIcon) {
+        menuCloseIcon.addEventListener('click', function() {
+            fullscreenMenu.classList.remove('open');
+        });
+    }
+
+    // Đóng menu khi click vào một liên kết
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Đợi một chút để chuyển trang hoặc cuộn
+            setTimeout(() => {
+                fullscreenMenu.classList.remove('open');
+            }, 100);
+        });
+    });
+
+
+    // === 2. LOGIC CHO PROJECT CARD TRÊN MOBILE ===
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    // Hàm kiểm tra nếu là môi trường mobile (dưới 768px)
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+    
+    projectCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            
+            // Chỉ chạy logic này trên Mobile
+            if (isMobile()) {
+                
+                // Kiểm tra xem click có rơi vào một thẻ <a> hoặc nút bên trong card hay không.
+                // Nếu click vào nút "View detail" hoặc bất kỳ link nào, ta sẽ BỎ QUA logic ẩn/hiện
+                if (e.target.closest('a')) {
+                    // Nếu là link, không cần chạy logic ẩn/hiện.
+                    // Cho phép hành vi mặc định (chuyển trang) xảy ra.
+                    return; 
+                }
+
+                // Nếu click vào bất kỳ đâu KHÁC TRONG card:
+                
+                // Ngăn chặn hành vi mặc định của thẻ cha nếu nó là link
+                e.preventDefault(); 
+                
+                const isContentShown = card.classList.contains('show-content');
+                
+                // 1. Đóng tất cả các card đang mở khác
+                projectCards.forEach(otherCard => {
+                    if (otherCard !== card) {
+                        otherCard.classList.remove('show-content');
+                    }
+                });
+
+                // 2. Chuyển đổi trạng thái của card hiện tại
+                if (isContentShown) {
+                    // Đang mở -> Chạm lần 2 -> Đóng lại (Hiện hình ảnh default)
+                    card.classList.remove('show-content');
+                } else {
+                    // Đang đóng -> Chạm lần 1 -> Mở nội dung lên
+                    card.classList.add('show-content');
+                }
+            }
+        });
+    });
+
+    // === 3. LOGIC CHO PAGE LOADER (Nếu có) ===
+    const pageLoader = document.getElementById('page-loader');
+    if (pageLoader) {
+        // Tắt loader sau khi trang đã tải xong (hoặc sau 1 khoảng thời gian)
+        window.addEventListener('load', function() {
+            pageLoader.classList.add('hide');
+            // Xóa phần tử khỏi DOM sau khi animation kết thúc để nó không chặn sự kiện click
+            setTimeout(() => {
+                pageLoader.style.display = 'none';
+            }, 500); // 500ms phải khớp với thời gian transition/animation của loader trong CSS
+        });
+    }
+});

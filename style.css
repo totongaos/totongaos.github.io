@@ -1057,6 +1057,12 @@ footer {
         gap: 40px;
         text-align: center; /* Canh giữa nội dung */
     }
+    
+    /* Bỏ dấu chấm và padding cho danh sách trong Hero Section (About Page) trên Tablet và Mobile */
+    .hero-text .about-list {
+        list-style: none;
+        padding-left: 0;
+    }
 
     .hero-image {
         width: 60%; /* Thu nhỏ ảnh minh họa */

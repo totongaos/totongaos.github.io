@@ -472,12 +472,46 @@ body {
     padding: 8px var(--outer-margin);
 }
 
+/* NEW: Cập nhật .section-header để hiển thị nút giả lập trên desktop */
 .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    position: relative; /* Dùng cho Desktop button */
 }
+
+/* NEW: Giả lập lại nút "View more" cho Desktop/Tablet */
+.section-header::after {
+    content: 'View more'; 
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+    background-color: var(--accent-color-dark);
+    color: var(--primary-color);
+    border: 1px solid var(--accent-color-dark);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+    /* NEW: Giả lập icon (Không thể dùng thẻ <img>, dùng Unicode hoặc base64 nếu cần) */
+    /* Đây là một ký tự mũi tên phải đơn giản, nhưng để hoàn chỉnh, bạn nên dùng JS/Icon Font/Base64 */
+    /* Tùy chọn 1: Dùng ký tự Unicode (Kém hơn) */
+    /* content: 'View more \2192'; */ 
+    
+    /* Tùy chọn 2: Dùng base64 của SVG (Phức tạp hơn) */
+    /* Tạm thời chỉ để chữ để giữ tính đơn giản của CSS */
+}
+
+.section-header:hover::after {
+     background-color: #404040;
+}
+/* END NEW: Giả lập nút "View more" cho Desktop/Tablet */
+
 
 .projects-grid {
     display: grid;
@@ -485,6 +519,13 @@ body {
     gap: var(--grid-gutter);
     margin-bottom: 24px;
 }
+
+/* NEW: Container cho nút Mobile. Mặc định ẩn trên Desktop/Tablet */
+.view-more-container {
+    display: none; /* Ẩn mặc định */
+    margin-top: 24px;
+}
+
 
 /* --- PROJECT CARD --- */
 
@@ -724,6 +765,8 @@ footer {
     flex-direction: column;
     gap: 12px;
     margin-bottom: 24px;
+    /* NEW: Căn giữa tiêu đề My Projects trên mobile */
+        text-align: center;
 }
 
 .footer-nav a {
@@ -1034,8 +1077,10 @@ footer {
 
 @media (max-width: 768px) {
     .skills-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-bottom: 20px;
+        /* NEW: Căn giữa tiêu đề My Projects trên mobile */
+        text-align: center;
     }
     
     .skills-grid {
@@ -1147,9 +1192,17 @@ footer {
 
     /* Projects Section */
     .section-header {
-        flex-direction: column; /* Xếp dọc tiêu đề và nút View more */
-        align-items: flex-start;
-        gap: 16px;
+        /* Đảm bảo tiêu đề My Projects vẫn nằm ở lề trái */
+        display: block; 
+        margin-bottom: 30px;
+        /* NEW: Căn giữa tiêu đề My Projects trên mobile */
+        text-align: center;
+    }
+    
+    /* NEW: Ẩn nút giả lập trên Mobile */
+    .section-header::after {
+        content: none;
+        display: none;
     }
 
     .projects-grid {
@@ -1172,6 +1225,17 @@ footer {
         transform: scale(1.05);
         opacity: 0.2;
     }
+    
+    /* NEW: Hiển thị và style nút View More Mobile */
+    .view-more-container {
+        display: block; /* Hiển thị trên mobile */
+    }
+    
+    .view-more-btn-mobile {
+        width: 100%;
+        justify-content: center;
+    }
+
 
     /* Project Filter Bar (Trang Project) */
     .filter-container {

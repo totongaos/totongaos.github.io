@@ -149,6 +149,7 @@ body {
     color: var(--accent-color-dark);
     font-size: 0.85rem;
     font-weight: 500;
+    
 }
 
 
@@ -465,7 +466,7 @@ body {
 /* --- 4. PROJECTS SECTION --- */
 .projects-section {
     background-color: var(--project-section-bg);
-    padding: 60px 0 120px;
+    padding: 60px 0 60px;
 }
 
 .projects-section .container {
@@ -765,8 +766,7 @@ footer {
     flex-direction: column;
     gap: 12px;
     margin-bottom: 24px;
-    /* NEW: Căn giữa tiêu đề My Projects trên mobile */
-        text-align: center;
+    
 }
 
 .footer-nav a {

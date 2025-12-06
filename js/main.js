@@ -119,13 +119,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuCloseBtn = document.querySelector('.menu-close-icon');
     const fullscreenMenu = document.getElementById('fullscreen-menu');
     const menuLinks = document.querySelectorAll('.menu-links a');
+    const body = document.body; // <--- KHAI BÁO THÊM BIẾN BODY
 
     // 1. Mở Menu
     if (menuOpenBtn && fullscreenMenu) {
         menuOpenBtn.addEventListener('click', function() {
             fullscreenMenu.classList.add('show-menu');
+            body.classList.add('menu-active'); // <--- THÊM: Kích hoạt class ẩn logo Navbar
             // Ngăn cuộn body khi menu mở (tùy chọn)
-            document.body.style.overflow = 'hidden'; 
+            body.style.overflow = 'hidden'; // Đã thay document.body.style.overflow = 'hidden'
         });
     }
 
@@ -133,8 +135,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuCloseBtn && fullscreenMenu) {
         menuCloseBtn.addEventListener('click', function() {
             fullscreenMenu.classList.remove('show-menu');
+            body.classList.remove('menu-active'); // <--- THÊM: Vô hiệu hóa class ẩn logo Navbar
             // Cho phép body cuộn lại
-            document.body.style.overflow = ''; 
+            body.style.overflow = ''; // Đã thay document.body.style.overflow = ''
         });
     }
     
@@ -144,7 +147,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Chỉ đóng nếu là liên kết nội bộ
             if (link.getAttribute('href').startsWith('#') || link.getAttribute('href').endsWith('.html')) {
                 fullscreenMenu.classList.remove('show-menu');
-                document.body.style.overflow = '';
+                body.classList.remove('menu-active'); // <--- THÊM: Vô hiệu hóa class ẩn logo Navbar
+                body.style.overflow = '';
             }
         });
     });
